@@ -182,39 +182,38 @@
     <script type="text/javascript">
         $("#add-btn").on("click", function (event) {
             event.preventDefault();
+
+            var profileArray
             var newProfile = {
                 name: $("#name").val().trim(),
                 picture: $("#pic").val().trim(),
-                questionOne: $("#q1").val(),
-                questionTwo: $("#q2").val(),
-                questionThree: $("#q3").val(),
-                questionFour: $("#q4").val(),
-                questionFive: $("#q5").val(),
-                questionSix: $("#q6").val(),
-                questionSeven: $("#q7").val(),
-                questionEight: $("#q8").val(),
-                questionNine: $("#q9").val(),
-                questionTen: $("#q10").val(),
-
-            };
+                questionOne: parseInt($("#q1").val()),
+                questionTwo: parseInt($("#q2").val()),
+                questionThree: parseInt($("#q3").val()),
+                questionFour: parseInt($("#q4").val()),
+                questionFive: parseInt($("#q5").val()),
+                questionSix: parseInt($("#q6").val()),
+                questionSeven: parseInt($("#q7").val()),
+                questionEight: parseInt($("#q8").val()),
+                questionNine: parseInt($("#q9").val()),
+                questionTen: parseInt($("#q10").val())
+                }
 
             console.log(newProfile)
 
             var currentURL = window.location.origin;
 
             $.post(`${currentURL}/api/friends`, newProfile, function (data) {
-                if (data == true) {
-                    alert("You have booked a table!");
-                }
+                // if (data == true) {
+                //     alert("You have booked a table!");
+                // }
 
-                if (data == false) {
-                    alert("Sorry, you're on the wait list.");
-                }
+                // if (data == false) {
+                //     alert("Sorry, you're on the wait list.");
+                // }
+                alert("You've added your profile.")
 
-                $("#name").val("");
-                $("#phoneNumber").val("");
-                $("#email").val("");
-                $("#uniqueID").val("");
+                //put pop up module logic here with returned data
             });
         })
     </script>
