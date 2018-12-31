@@ -27,7 +27,7 @@ module.exports = function(app) {
             scores: numList
         }
 
-        friendArray.push(profile);
+        
 
 
         // var numArray = person.filter(function(obj) {
@@ -42,20 +42,36 @@ module.exports = function(app) {
         // })
 
         // console.log(numList);
-        res.json(person);
+        
 
 
 
 
-
+        
 
 
         //change this to return the data that will display in the pop up module
-            // for (var i = 0; i < characters.length; i++) {
-            //     if (chosen === characters[i].routeName) {
-            //       return res.json(characters[i]);
-            //     }
-            //   }
-        
+            for (var i = 0; i < friendArray.length; i++) {
+
+                for(var j = 0; j < friendArray[i].scores.length; j++){
+                    var difference = [];
+                    difference.push(Math.abs(friendArray[i].scores[j] - numList[j]));
+
+                }
+                
+                
+                // friendArray[i].scores.forEach(function(score){
+                //     score -
+                // })
+
+
+                // if (numList === friendArray[i].scores) {
+                //   return res.json(characters[i]);
+                // }
+              }
+              console.log(difference)
+
+        friendArray.push(profile);
+        res.json(person);
     })
 }
