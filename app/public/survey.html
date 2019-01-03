@@ -167,6 +167,27 @@
         </div>
     </footer>
 
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Your most compatible friend is:</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-4" id="matchInfo"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -197,23 +218,36 @@
                 questionEight: parseInt($("#q8").val()),
                 questionNine: parseInt($("#q9").val()),
                 questionTen: parseInt($("#q10").val())
-                }
+            }
 
             console.log(newProfile)
 
             var currentURL = window.location.origin;
 
             $.post(`${currentURL}/api/friends`, newProfile, function (data) {
-                // if (data == true) {
-                //     alert("You have booked a table!");
-                // }
 
-                // if (data == false) {
-                //     alert("Sorry, you're on the wait list.");
-                // }
                 console.log(data);
-                alert(`You've added your profile`);
-                
+                // alert(`You've added your profile`);
+
+                $('#myModal').on('show.bs.modal', function (e) {
+                    if (!data) return e.preventDefault() // stops modal from being shown
+                    
+                   
+
+                    var matchName = $("<p>").text(data.name);
+                    $("#matchInfo").append(matchName);
+
+                    var matchPic = $("<img>").attr("src", data.photo).attr("style", "max-width:200px");
+                    $("#matchInfo").append(matchPic)
+
+                   
+
+
+                })
+
+
+                $('#myModal').modal('show')
+
 
                 //put pop up module logic here with returned data
             });
