@@ -27,9 +27,6 @@ module.exports = function(app) {
             scores: numList
         }
 
-        
-
-
         // var numArray = person.filter(function(obj) {
         //     if (obj.value !== isNaN) {
         //         scores.push(numArray);
@@ -44,22 +41,28 @@ module.exports = function(app) {
         // console.log(numList);
         
 
-
-
-
-        
-
+        var difference = [];
+        var diffArray = [];
 
         //change this to return the data that will display in the pop up module
             for (var i = 0; i < friendArray.length; i++) {
 
                 for(var j = 0; j < friendArray[i].scores.length; j++){
-                    var difference = [];
+                    
                     difference.push(Math.abs(friendArray[i].scores[j] - numList[j]));
-
+                    
                 }
+                console.log(difference)
+                var diffSum = difference.reduce(function(a,b){
+                    return a + b
+                }, 0);
+
+                difference = [];
+                diffArray.push(diffSum)
                 
-                
+                console.log(diffSum)
+                console.log(diffArray)
+
                 // friendArray[i].scores.forEach(function(score){
                 //     score -
                 // })
@@ -69,9 +72,10 @@ module.exports = function(app) {
                 //   return res.json(characters[i]);
                 // }
               }
-              console.log(difference)
-
+              
+        var index = diffArray.indexOf(Math.min(...diffArray))
+        console.log(`Index number of minimum difference = ${index}`)
         friendArray.push(profile);
-        res.json(person);
+        res.json(friendArray[index]);
     })
 }
