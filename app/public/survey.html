@@ -20,7 +20,7 @@
         <div class="jumbotron">
             <h1 class="display-4"><i class="fas fa-users"></i> Survey Questions</h1>
             <hr class="my-4">
-            <p>This survey will find the person you're most compatible with from our friends list.</p>
+            <p>This survey will find the person you're most compatible with from our friends list. Just enter your name, a link to your picture, and answer, on a scale of one to five, how much you agree or disagree with the following questions.</p>
         </div>
     </div>
 
@@ -38,7 +38,7 @@
 
             <h3><strong>Question 1</strong></h3>
             <div class="form-group">
-                <label for="exampleFormControlSelect2">Example multiple select</label>
+                <label for="exampleFormControlSelect2">I prefer small gatherings with a few close friends.</label>
                 <select class="form-control" id="q1">
                     <option>5 (Strongly Agree)</option>
                     <option>4</option>
@@ -50,7 +50,7 @@
 
             <h3><strong>Question 2</strong></h3>
             <div class="form-group">
-                <label for="exampleFormControlSelect2">Example multiple select</label>
+                <label for="exampleFormControlSelect2">I like to use my spare time to get out in nature.</label>
                 <select class="form-control" id="q2">
                     <option>5 (Strongly Agree)</option>
                     <option>4</option>
@@ -62,7 +62,7 @@
 
             <h3><strong>Question 3</strong></h3>
             <div class="form-group">
-                <label for="exampleFormControlSelect2">Example multiple select</label>
+                <label for="exampleFormControlSelect2">Talking to new people comes easily for me.</label>
                 <select class="form-control" id="q3">
                     <option>5 (Strongly Agree)</option>
                     <option>4</option>
@@ -74,7 +74,7 @@
 
             <h3><strong>Question 4</strong></h3>
             <div class="form-group">
-                <label for="exampleFormControlSelect2">Example multiple select</label>
+                <label for="exampleFormControlSelect2">Cats are the best pet to have.</label>
                 <select class="form-control" id="q4">
                     <option>5 (Strongly Agree)</option>
                     <option>4</option>
@@ -86,7 +86,7 @@
 
             <h3><strong>Question 5</strong></h3>
             <div class="form-group">
-                <label for="exampleFormControlSelect2">Example multiple select</label>
+                <label for="exampleFormControlSelect2">I love last-minute adventures.</label>
                 <select class="form-control" id="q5">
                     <option>5 (Strongly Agree)</option>
                     <option>4</option>
@@ -98,7 +98,7 @@
 
             <h3><strong>Question 6</strong></h3>
             <div class="form-group">
-                <label for="exampleFormControlSelect2">Example multiple select</label>
+                <label for="exampleFormControlSelect2">Being able to have deep conversations with friends is something I value.</label>
                 <select class="form-control" id="q6">
                     <option>5 (Strongly Agree)</option>
                     <option>4</option>
@@ -110,7 +110,7 @@
 
             <h3><strong>Question 7</strong></h3>
             <div class="form-group">
-                <label for="exampleFormControlSelect2">Example multiple select</label>
+                <label for="exampleFormControlSelect2">I'd prefer a good book over a movie.</label>
                 <select class="form-control" id="q7">
                     <option>5 (Strongly Agree)</option>
                     <option>4</option>
@@ -122,7 +122,7 @@
 
             <h3><strong>Question 8</strong></h3>
             <div class="form-group">
-                <label for="exampleFormControlSelect2">Example multiple select</label>
+                <label for="exampleFormControlSelect2">I consider myself an outgoing person.</label>
                 <select class="form-control" id="q8">
                     <option>5 (Strongly Agree)</option>
                     <option>4</option>
@@ -134,7 +134,7 @@
 
             <h3><strong>Question 9</strong></h3>
             <div class="form-group">
-                <label for="exampleFormControlSelect2">Example multiple select</label>
+                <label for="exampleFormControlSelect2">People would consider me reliable</label>
                 <select class="form-control" id="q9">
                     <option>5 (Strongly Agree)</option>
                     <option>4</option>
@@ -146,7 +146,7 @@
 
             <h3><strong>Question 10</strong></h3>
             <div class="form-group">
-                <label for="exampleFormControlSelect2">Example multiple select</label>
+                <label for="exampleFormControlSelect2">Pineapple is not a pizza topping.</label>
                 <select class="form-control" id="q10">
                     <option>5 (Strongly Agree)</option>
                     <option>4</option>
@@ -158,7 +158,14 @@
 
             <button type="submit" class="btn btn-primary" id="add-btn">Submit</button>
         </form>
-    </div>
+
+        <!-- <div class="alert alert-danger alert-dismissible fade show" role="alert" hidden="true">
+           Please make sure the Name and Photo Image fields are completed!
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div> -->
 
     <footer class="footer">
         <div class="container p-3 mb-2">
@@ -201,51 +208,54 @@
         $("#add-btn").on("click", function (event) {
             event.preventDefault();
 
-            var profileArray
-            var newProfile = {
-                name: $("#name").val().trim(),
-                picture: $("#pic").val().trim(),
-                questionOne: parseInt($("#q1").val()),
-                questionTwo: parseInt($("#q2").val()),
-                questionThree: parseInt($("#q3").val()),
-                questionFour: parseInt($("#q4").val()),
-                questionFive: parseInt($("#q5").val()),
-                questionSix: parseInt($("#q6").val()),
-                questionSeven: parseInt($("#q7").val()),
-                questionEight: parseInt($("#q8").val()),
-                questionNine: parseInt($("#q9").val()),
-                questionTen: parseInt($("#q10").val())
-            }
+                var profileArray
+                var newProfile = {
+                    name: $("#name").val().trim(),
+                    picture: $("#pic").val().trim(),
+                    questionOne: parseInt($("#q1").val()),
+                    questionTwo: parseInt($("#q2").val()),
+                    questionThree: parseInt($("#q3").val()),
+                    questionFour: parseInt($("#q4").val()),
+                    questionFive: parseInt($("#q5").val()),
+                    questionSix: parseInt($("#q6").val()),
+                    questionSeven: parseInt($("#q7").val()),
+                    questionEight: parseInt($("#q8").val()),
+                    questionNine: parseInt($("#q9").val()),
+                    questionTen: parseInt($("#q10").val())
+                }
 
-            console.log(newProfile)
+                console.log(newProfile)
 
-            var currentURL = window.location.origin;
+                var currentURL = window.location.origin;
 
-            if (newProfile.name)
+            if (newProfile.name == "" || newProfile.picture == "") {
+                // $('.alert').hidden = false;
 
+                alert("Please make sure the Name and Photo Image fields are completed!")
+            } else {
 
+                $.post(`${currentURL}/api/friends`, newProfile, function (data) {
 
-            $.post(`${currentURL}/api/friends`, newProfile, function (data) {
+                    console.log(data);
+                    // alert(`You've added your profile`);
 
-                console.log(data);
-                // alert(`You've added your profile`);
+                    //this puts the data received into the modal when it pops up
+                    $('#myModal').on('show.bs.modal', function (e) {
+                        if (!data) return e.preventDefault() // stops modal from being shown
 
-                //this puts the data received into the modal when it pops up
-                $('#myModal').on('show.bs.modal', function (e) {
-                    if (!data) return e.preventDefault() // stops modal from being shown
-                    
-                    $("#matchInfo").empty();
+                        $("#matchInfo").empty();
 
-                    var matchName = $("<p>").html("<strong>" + data.name + "<strong>");
-                    $("#matchInfo").append(matchName);
+                        var matchName = $("<p>").html("<strong>" + data.name + "<strong>");
+                        $("#matchInfo").append(matchName);
 
-                    var matchPic = $("<img>").attr("src", data.photo).attr("style", "max-width:200px");
-                    $("#matchInfo").append(matchPic)
+                        var matchPic = $("<img>").attr("src", data.photo).attr("style", "max-width:200px");
+                        $("#matchInfo").append(matchPic)
+                    });
+
+                    //this calls the modal to pop up
+                    $('#myModal').modal('show')
                 });
-
-                //this calls the modal to pop up
-                $('#myModal').modal('show')
-            });
+            }
         })
     </script>
 </body>
