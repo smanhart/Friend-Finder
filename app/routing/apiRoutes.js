@@ -8,6 +8,8 @@ module.exports = function(app) {
 
     app.post("/api/friends", function(req, res) {
         var person = req.body;
+
+        //I am going to come back and figure out a better way to do this
         var numList = [
             parseInt(person.questionOne),
             parseInt(person.questionTwo),
@@ -27,24 +29,10 @@ module.exports = function(app) {
             scores: numList
         }
 
-        // var numArray = person.filter(function(obj) {
-        //     if (obj.value !== isNaN) {
-        //         scores.push(numArray);
-        //     }
-        // })
-
-        // var numArray = numList.map(function(obj) {
-        //     var num = obj.value;
-        //     return num;
-        // })
-
-        // console.log(numList);
-        
-
         var difference = [];
         var diffArray = [];
 
-        //change this to return the data that will display in the pop up module
+        
             for (var i = 0; i < friendArray.length; i++) {
 
                 for(var j = 0; j < friendArray[i].scores.length; j++){
@@ -63,14 +51,6 @@ module.exports = function(app) {
                 console.log(diffSum)
                 console.log(diffArray)
 
-                // friendArray[i].scores.forEach(function(score){
-                //     score -
-                // })
-
-
-                // if (numList === friendArray[i].scores) {
-                //   return res.json(characters[i]);
-                // }
               }
               
         var index = diffArray.indexOf(Math.min(...diffArray))
